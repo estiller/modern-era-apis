@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "b6f23c5e-69e1-447f-8588-6f70b5b68521",
+		"name": "ModernEraApis.OData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:5001/odata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/odata",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:5001/odata/books(1)/borrower/$ref",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"@odata.id\":\"https://localhost:5001/odata/users(1)\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/books(1)/borrower/$ref",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"books(1)",
+						"borrower",
+						"$ref"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:5001/odata/books?$expand=borrower",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/odata/books?$expand=borrower",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"books"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "borrower"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:5001/odata/books(1)/borrower",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/odata/books(1)/borrower",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"books(1)",
+						"borrower"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

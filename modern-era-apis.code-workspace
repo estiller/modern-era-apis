@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "01-odata-server"
+		},
+		{
+			"path": "02-openapi-server"
 		}
 	]
 }

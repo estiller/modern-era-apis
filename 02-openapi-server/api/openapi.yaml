@@ -1,0 +1,289 @@
+openapi: 3.0.0
+info:
+  title: Library API
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+paths:
+  /api/books:
+    get:
+      tags:
+      - Books
+      operationId: getBooks
+      responses:
+        "200":
+          description: The list of books in the library
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+                x-content-type: application/json
+      x-swagger-router-controller: Books
+  /api/books/{bookId}:
+    get:
+      tags:
+      - Books
+      operationId: getBook
+      parameters:
+      - name: bookId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      responses:
+        "200":
+          description: The requested book
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        "404":
+          description: The requested book was not found
+      x-swagger-router-controller: Books
+    put:
+      tags:
+      - Books
+      operationId: putBook
+      parameters:
+      - name: bookId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+        required: true
+        x-name: book
+        x-position: 2
+      responses:
+        "200":
+          description: The created or updated book
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+      x-swagger-router-controller: Books
+    delete:
+      tags:
+      - Books
+      operationId: deleteBook
+      parameters:
+      - name: bookId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      responses:
+        "204":
+          description: The requested book was deleted
+      x-swagger-router-controller: Books
+  /api/books/{bookId}/borrower:
+    get:
+      tags:
+      - Books
+      operationId: getBookBorrower
+      parameters:
+      - name: bookId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      responses:
+        "200":
+          description: The book borrower
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "404":
+          description: No book borrower was found
+      x-swagger-router-controller: Books
+    put:
+      tags:
+      - Books
+      operationId: putBookBorrower
+      parameters:
+      - name: bookId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+        x-name: borrower
+        x-position: 2
+      responses:
+        "200":
+          description: The updated book borrower
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-swagger-router-controller: Books
+    delete:
+      tags:
+      - Books
+      operationId: deleteBookBorrower
+      parameters:
+      - name: bookId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      responses:
+        "204":
+          description: The book borrower was removed
+      x-swagger-router-controller: Books
+  /api/users:
+    get:
+      tags:
+      - Users
+      operationId: getUsers
+      responses:
+        "200":
+          description: The list of users in the library
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+                x-content-type: application/json
+      x-swagger-router-controller: Users
+  /api/users/{userId}:
+    get:
+      tags:
+      - Users
+      operationId: getUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      responses:
+        "200":
+          description: The requested user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "404":
+          description: The requested user was not found
+      x-swagger-router-controller: Users
+    put:
+      tags:
+      - Users
+      operationId: putUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+        x-name: user
+        x-position: 2
+      responses:
+        "200":
+          description: The created or updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-swagger-router-controller: Users
+    delete:
+      tags:
+      - Users
+      operationId: deleteUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
+        x-position: 1
+      responses:
+        "204":
+          description: The requested user was deleted
+      x-swagger-router-controller: Users
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        borrower:
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/User'
+      additionalProperties: false
+      example:
+        name: name
+        borrower: ""
+        id: 0
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+      additionalProperties: false
+      example:
+        name: name
+        id: 0

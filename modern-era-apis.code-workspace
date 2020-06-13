@@ -17,6 +17,12 @@
 		},
 		{
 			"path": "03-grpc-client"
+		},
+		{
+			"path": "04-asyncapi-code-first-server"
+		},
+		{
+			"path": "04-asyncapi-generated-server"
 		}
 	]
 }

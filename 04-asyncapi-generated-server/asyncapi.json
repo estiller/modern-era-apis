@@ -1,0 +1,97 @@
+{
+    "asyncapi": "2.0.0",
+    "info": {
+        "title": "Library API",
+        "version": "1.0.0",
+        "description": "The Library API allows you to remotely add books to the library.",
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/estiller/modern-era-apis/blob/master/LICENSE"
+        }
+    },
+    "servers": {
+        "production": {
+            "url": "mqtt://test.mosquitto.org",
+            "protocol": "mqtt"
+        }
+    },
+    "defaultContentType": "application/json",
+    "channels": {
+        "publish/book/transaction": {
+            "publish": {
+                "operationId": "PublishBookTransactionCommand",
+                "summary": "",
+                "tags": [],
+                "bindings": {},
+                "message": {
+                    "payload": {
+                        "$ref": "#/components/schemas/bookTransactionCommand"
+                    },
+                    "tags": [],
+                    "examples": [],
+                    "traits": []
+                },
+                "traits": []
+            }
+        },
+        "subscribe/book/inventory": {
+            "subscribe": {
+                "operationId": "SubscribeBookInventoryUpdates",
+                "summary": "",
+                "tags": [],
+                "bindings": {},
+                "message": {
+                    "payload": {
+                        "$ref": "#/components/schemas/bookInventoryUpdate"
+                    },
+                    "tags": [],
+                    "examples": [],
+                    "traits": []
+                },
+                "traits": []
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "bookTransactionCommand": {
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "TransactionType": {
+                        "type": "string",
+                        "enum": [
+                            "Loan",
+                            "Return"
+                        ]
+                    }
+                }
+            },
+            "bookInventoryUpdate": {
+                "properties": {
+                    "Id": {
+                        "type": "integer"
+                    },
+                    "Name": {
+                        "type": "string"
+                    },
+                    "Quantity": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "messages": {},
+        "securitySchemes": {},
+        "parameters": {},
+        "correlationIds": {},
+        "serverBindings": {},
+        "channelBindings": {},
+        "operationBindings": {},
+        "messageBindings": {},
+        "operationTraits": {},
+        "messageTraits": {}
+    },
+    "tags": []
+}

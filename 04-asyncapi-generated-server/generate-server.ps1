@@ -1,0 +1,2 @@
+npx -p @asyncapi/generator ag --param server='production' http://localhost:5000/asyncapi/asyncapi.json @asyncapi/nodejs-template
+npx -p @asyncapi/generator ag http://localhost:5000/asyncapi/asyncapi.json @asyncapi/html-template -o ./docs

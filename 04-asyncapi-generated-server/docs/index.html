@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Library API 1.0.0 documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/atom-one-dark.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <div class="relative md:flex lg:flex xl:flex">
+    
+
+<input id="burger-menu" type="checkbox" />
+<label for="burger-menu" class="shadow">
+  <div class="wrapper">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</label>
+<div class="sidebar-panel fixed pin-t pin-l pin-b w-64 bg-grey-lighter font-sans pt-8 pr-4 pb-4 pl-4">
+  <div class="sidebar-panel__content">
+    
+    <h1 class="text-2xl font-thin">Library API 1.0.0</h1>
+    
+    <ul class="text-sm mt-10 list-reset mt-2">
+      <li class="mb-3">
+        <a class="js-menu-item text-grey-darkest no-underline" href="#introduction">Introduction</a>
+      </li>
+      
+      <li class="mb-3">
+        <a class="js-menu-item text-grey-darkest no-underline" href="#servers">Servers</a>
+      </li>
+      
+    </ul>
+    
+    <h2 class="text-xs uppercase text-grey mt-10 mb-4 font-thin">Operations</h2>
+    <ul class="text-sm list-reset mt-2">
+      
+
+      <!--Without tags in sidebar-->
+      
+      <li>
+        
+        <a class="js-menu-item flex break-words no-underline text-grey-darkest mt-8 sm:mt-8 md:mt-3"
+          href="#operation-publish-publish/book/transaction">
+          <span class="bg-blue-dark font-bold h-6 no-underline text-white uppercase p-1 mr-2 rounded"
+            style="height: 21px;font-size: 11px;" title="Publish">Pub</span>
+          
+          <div style="display:inline-block;">
+            
+<span class="string-chunk" style="padding-top: 2px;">publish/book/transaction</span>
+
+          </div>
+          
+        </a>
+        
+        
+        </a>
+      </li>
+      
+      <li>
+        
+        
+        <a class="js-menu-item flex break-words no-underline text-grey-darkest mt-8 sm:mt-8 md:mt-3"
+          href="#operation-subscribe-subscribe/book/inventory">
+          <span class="bg-green-dark font-bold no-underline text-white uppercase p-1 mr-2 rounded"
+            style="height: 21px;font-size: 11px;" title="Subscribe">Sub</span>
+          
+          <div style="display:inline-block;">
+            
+<span class="string-chunk" style="padding-top: 2px;">subscribe/book/inventory</span>
+
+          </div>
+          
+        </a>
+        
+        </a>
+      </li>
+      
+    </ul>
+    
+    <h2 class="text-xs uppercase text-grey mt-10 mb-4 font-thin">Messages</h2>
+    <ul class="text-sm list-reset mt-2">
+      
+        <a class="js-menu-item flex break-words no-underline text-grey-darkest mt-8 sm:mt-8 md:mt-3"
+          href="#message-&lt;anonymous-message-1&gt;">
+          <div style="display:inline-block;">
+            
+<span class="string-chunk" style="padding-top: 2px;">&lt;anonymous-message-1&gt;</span>
+
+          </div>
+        </a>
+      
+        <a class="js-menu-item flex break-words no-underline text-grey-darkest mt-8 sm:mt-8 md:mt-3"
+          href="#message-&lt;anonymous-message-2&gt;">
+          <div style="display:inline-block;">
+            
+<span class="string-chunk" style="padding-top: 2px;">&lt;anonymous-message-2&gt;</span>
+
+          </div>
+        </a>
+      
+    </ul>
+    
+  </div>
+</div>
+
+    <div class="content-panel flex-1 leading-loose z-10">
+      <div class="center-block p-8">
+  <a name="introduction"></a>
+  <h1>Library API 1.0.0</h1>
+  <div class="leading-normal mb-4">
+    
+    
+      <a class="border border-solid border-orange-lighter hover:bg-orange-lighter hover:text-orange-dark font-bold no-underline text-orange text-xs uppercase rounded mr-2 px-3 py-1"
+        href="https://github.com/estiller/modern-era-apis/blob/master/LICENSE" target="_blank">MIT</a>
+    
+  </div>
+
+  <div class="markdown">
+    <p>The Library API allows you to remotely add books to the library.</p>
+
+  </div>
+
+
+  <div class="leading-normal mb-4">
+    
+  </div>
+</div>
+
+
+
+<a name="servers"></a>
+<div class="center-block p-8">
+
+  <h2 class="mb-4">Servers</h2>
+
+  
+    <div class="shadow bg-grey-lighter mb-3 px-4 py-3">
+      <div class="flex">
+        <div>
+          <div class="pr-4 font-mono">
+            
+<span class="string-chunk" >mqtt://test.mosquitto.org</span>
+
+
+            
+            <span class="bg-teal font-sans font-bold no-underline text-white uppercase rounded ml-2"
+              style="height: 20px;font-size: 11px;padding: 3px;">mqtt</span>
+            
+          </div>
+          <div class="text-xs text-grey-dark">
+            
+          </div>
+        </div>
+      </div>
+
+      
+        <div>
+          
+        </div>
+      
+
+      
+    </div>
+  
+
+</div>
+
+
+
+
+
+<a name="operations"></a>
+<h2 class="mb-4 ml-8">Operations</h2>
+
+
+  <div class="responsive-container">
+    
+      
+
+<a name="operation-publish-publish/book/transaction"></a>
+<div class="center-block p-8">
+  <div class="operation pt-8 pb-8">
+    <h3 class="font-mono text-base">
+      
+      <span class="font-mono border border-blue text-blue uppercase p-1 rounded" title="Publish">Pub</span>
+      
+      
+      
+<span class="string-chunk" >publish/book/transaction</span>
+
+    </h3>
+
+    <div class="mt-4 mb-4 markdown"></div>
+
+    <p class="text-grey text-sm"></p>
+    <div class="mt-4 mb-4 markdown"></div>
+
+
+
+    
+
+
+    
+    <p>Accepts the following message:</p>
+    
+
+<div class="bg-grey-lighter rounded p-4 mt-2">
+  <div class="text-sm text-grey-darker mb-2">
+    
+    
+      
+    
+  </div>
+  <p class="text-grey-dark text-sm"></p>
+  
+  
+
+<div class="mt-4">
+  
+</div>
+
+
+
+
+  <div class="mt-4 mb-4 markdown"></div>
+  
+<div>
+  
+
+<div class="bg-grey-lighter  rounded">
+  <div class="is-open">
+    <div class="js-prop cursor-pointer py-2 flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Payload</span>
+        
+        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+          xmlns="http://www.w3.org/2000/svg" y="0">
+          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+        </svg>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <div class="children bg-grey-lightest py-4 rounded">
+        
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Id</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+integer
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">TransactionType</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+          <div class="text-xs">
+            Enum:
+            
+              <span class="border text-orange rounded ml-1 py-0 px-2">"Loan"</span>
+            
+              <span class="border text-orange rounded ml-1 py-0 px-2">"Return"</span>
+            
+          </div>
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+        
+
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+</div>
+
+
+</div>
+
+  
+</div>
+
+
+    
+
+    
+
+<div class="mt-4">
+  
+</div>
+
+
+
+  </div>
+</div>
+
+<div class="right-block p-8">
+  <h4 class="text-lg text-white mb-4">Examples</h4>
+
+  
+  
+
+<form>
+  <h5 class="examples-uid text-orange mt-4">&lt;anonymous-message-1&gt;</h5>
+  
+    <div class="payload-examples mb-4 ">
+      <div class="js-prop cursor-pointer  flex property">
+        <span class="px-2 mr-2 text-grey-lightest text-sm border rounded focus:outline-none cursor-pointer">Payload</span>
+        
+          <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+            xmlns="http://www.w3.org/2000/svg" y="0">
+            <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+          </svg>
+        
+      </div>
+      <div class="children payload-examples mt-4">
+        
+        <pre class="hljs mb-4 border border-grey-darkest rounded"><code>{
+  "Id": 0,
+  "TransactionType": "Loan"
+}</code></pre>
+        <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
+        
+      </div>
+    </div>
+  
+
+  
+</form>
+
+
+  
+</div>
+
+
+
+    
+  </div>
+  <div class="responsive-container">
+    
+  </div>
+
+  <div class="responsive-container">
+    
+  </div>
+  <div class="responsive-container">
+    
+      
+
+<a name="operation-subscribe-subscribe/book/inventory"></a>
+<div class="center-block p-8">
+  <div class="operation pt-8 pb-8">
+    <h3 class="font-mono text-base">
+      
+      
+      <span class="font-mono border border-green-dark text-green-dark uppercase p-1 rounded"
+        title="Subscribe">Sub</span>
+      
+      
+<span class="string-chunk" >subscribe/book/inventory</span>
+
+    </h3>
+
+    <div class="mt-4 mb-4 markdown"></div>
+
+    <p class="text-grey text-sm"></p>
+    <div class="mt-4 mb-4 markdown"></div>
+
+
+
+    
+
+
+    
+    <p>Accepts the following message:</p>
+    
+
+<div class="bg-grey-lighter rounded p-4 mt-2">
+  <div class="text-sm text-grey-darker mb-2">
+    
+    
+      
+    
+  </div>
+  <p class="text-grey-dark text-sm"></p>
+  
+  
+
+<div class="mt-4">
+  
+</div>
+
+
+
+
+  <div class="mt-4 mb-4 markdown"></div>
+  
+<div>
+  
+
+<div class="bg-grey-lighter  rounded">
+  <div class="is-open">
+    <div class="js-prop cursor-pointer py-2 flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Payload</span>
+        
+        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+          xmlns="http://www.w3.org/2000/svg" y="0">
+          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+        </svg>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <div class="children bg-grey-lightest py-4 rounded">
+        
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Id</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+integer
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Name</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Quantity</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+integer
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+        
+
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+</div>
+
+
+</div>
+
+  
+</div>
+
+
+    
+
+    
+
+<div class="mt-4">
+  
+</div>
+
+
+
+  </div>
+</div>
+
+<div class="right-block p-8">
+  <h4 class="text-lg text-white mb-4">Examples</h4>
+
+  
+  
+
+<form>
+  <h5 class="examples-uid text-orange mt-4">&lt;anonymous-message-2&gt;</h5>
+  
+    <div class="payload-examples mb-4 ">
+      <div class="js-prop cursor-pointer  flex property">
+        <span class="px-2 mr-2 text-grey-lightest text-sm border rounded focus:outline-none cursor-pointer">Payload</span>
+        
+          <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+            xmlns="http://www.w3.org/2000/svg" y="0">
+            <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+          </svg>
+        
+      </div>
+      <div class="children payload-examples mt-4">
+        
+        <pre class="hljs mb-4 border border-grey-darkest rounded"><code>{
+  "Id": 0,
+  "Name": "string",
+  "Quantity": 0
+}</code></pre>
+        <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
+        
+      </div>
+    </div>
+  
+
+  
+</form>
+
+
+  
+</div>
+
+
+
+    
+  </div>
+
+
+
+
+
+<a name="messages"></a>
+<h2 class="ml-8 mt-4">Messages</h2>
+
+<div class="responsive-container">
+  <div class="center-block p-8">
+    <div class="pb-8">
+      
+      <a name="message-&lt;anonymous-message-1&gt;"></a>
+      
+
+<div class="bg-grey-lighter rounded p-4 mt-2">
+  <div class="text-sm text-grey-darker mb-2">
+    
+    <span class="text-grey-darker font-bold mr-2">#1</span>
+    
+    
+      
+    
+  </div>
+  <p class="text-grey-dark text-sm"></p>
+  
+  
+
+<div class="mt-4">
+  
+</div>
+
+
+
+
+  <div class="mt-4 mb-4 markdown"></div>
+  
+<div>
+  
+
+<div class="bg-grey-lighter  rounded">
+  <div class="">
+    <div class="js-prop cursor-pointer py-2 flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Payload</span>
+        
+        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+          xmlns="http://www.w3.org/2000/svg" y="0">
+          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+        </svg>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <div class="children bg-grey-lightest py-4 rounded">
+        
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Id</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+integer
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">TransactionType</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+          <div class="text-xs">
+            Enum:
+            
+              <span class="border text-orange rounded ml-1 py-0 px-2">"Loan"</span>
+            
+              <span class="border text-orange rounded ml-1 py-0 px-2">"Return"</span>
+            
+          </div>
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+        
+
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+</div>
+
+
+</div>
+
+  
+</div>
+
+
+      
+      <a name="message-&lt;anonymous-message-2&gt;"></a>
+      
+
+<div class="bg-grey-lighter rounded p-4 mt-2">
+  <div class="text-sm text-grey-darker mb-2">
+    
+    <span class="text-grey-darker font-bold mr-2">#2</span>
+    
+    
+      
+    
+  </div>
+  <p class="text-grey-dark text-sm"></p>
+  
+  
+
+<div class="mt-4">
+  
+</div>
+
+
+
+
+  <div class="mt-4 mb-4 markdown"></div>
+  
+<div>
+  
+
+<div class="bg-grey-lighter  rounded">
+  <div class="">
+    <div class="js-prop cursor-pointer py-2 flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Payload</span>
+        
+        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+          xmlns="http://www.w3.org/2000/svg" y="0">
+          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+        </svg>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <div class="children bg-grey-lightest py-4 rounded">
+        
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Id</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+integer
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Name</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+            
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">Quantity</span>
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+integer
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+          
+        
+
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+</div>
+
+
+</div>
+
+  
+</div>
+
+
+      
+    </div>
+  </div>
+</div>
+
+
+    </div>
+    <div class="examples-panel absolute pin-t pin-r pin-b"></div>
+  </div>
+  <script src="js/highlight.min.js" type="application/javascript"></script>
+  <script src="js/main.js" type="application/javascript"></script>
+</body>
+</html>

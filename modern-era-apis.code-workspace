@@ -24,5 +24,8 @@
 		{
 			"path": "04-asyncapi-generated-server"
 		}
-	]
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "04-asyncapi-generated-server"
+	}
 }

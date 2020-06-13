@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "02-openapi-server"
+		},
+		{
+			"path": "02-openapi-client"
 		}
 	]
 }

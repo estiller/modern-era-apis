@@ -1,7 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "01-odata\\server"
+			"path": "01-odata-client"
+		},
+		{
+			"path": "01-odata-server"
 		}
 	]
 }

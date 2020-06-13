@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package libraryapi;
+
+import "google/protobuf/empty.proto";
+
+service Library {
+  rpc GetBooks (google.protobuf.Empty) returns (GetBooksReply) {}
+  rpc GetBook (google.protobuf.Empty) returns (Book) {}
+  rpc CreateOrUpdateBook(Book) returns (Book) {}
+  rpc DeleteBook(DeleteBookRequest) returns (google.protobuf.Empty) {}
+}
+
+message Book {
+  int32 id = 1;
+  string name = 2;
+}
+
+message GetBooksReply {
+  repeated Book books = 1;
+}
+
+message DeleteBookRequest {
+  int32 id = 1;
+}

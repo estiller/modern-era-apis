@@ -12,7 +12,7 @@ namespace ModernEraApis.AsyncApi.Server.Messaging
         [PublishOperation(typeof(BookTransactionCommand), OperationId = "PublishBookTransactionCommand")]
         public void ProcessTransactionCommand(BookTransactionCommand command)
         {
-
+            throw new NotImplementedException();
         }
 
         [Channel("subscribe/book/inventory")]

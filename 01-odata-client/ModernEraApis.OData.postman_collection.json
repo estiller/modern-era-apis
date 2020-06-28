@@ -25,21 +25,12 @@
 			"response": []
 		},
 		{
-			"name": "https://localhost:5001/odata/books(1)/borrower/$ref",
+			"name": "https://localhost:5001/odata/$metadata",
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"@odata.id\":\"https://localhost:5001/odata/users(1)\"}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "https://localhost:5001/odata/books(1)/borrower/$ref",
+					"raw": "https://localhost:5001/odata/$metadata",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -47,9 +38,27 @@
 					"port": "5001",
 					"path": [
 						"odata",
-						"books(1)",
-						"borrower",
-						"$ref"
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:5001/odata/books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/odata/books",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"books"
 					]
 				}
 			},
@@ -76,6 +85,37 @@
 							"key": "$expand",
 							"value": "borrower"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:5001/odata/books(1)/borrower/$ref",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"@odata.id\":\"https://localhost:5001/odata/users(1)\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/odata/books(1)/borrower/$ref",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"odata",
+						"books(1)",
+						"borrower",
+						"$ref"
 					]
 				}
 			},
